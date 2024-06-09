@@ -1,1 +1,1 @@
-minio/minio:RELEASE.2024-06-06T09-36-42Z-cpuv1
+prom/alertmanager:v0.27.0
