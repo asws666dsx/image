@@ -5,7 +5,6 @@ on:
   push:
     branches: [ main ]
 
-
 env:
   ALIYUN_REGISTRY: "${{ secrets.REGISTRY }}"
   ALIYUN_NAME_SPACE: "${{ secrets.NAME_SPACE }}"
@@ -13,7 +12,6 @@ env:
   ALIYUN_REGISTRY_PASSWORD: "${{ secrets.REGISTRY_PASSWORD }}"
 
 jobs:
-
   build:
     name: Pull
     runs-on: ubuntu-latest
@@ -24,15 +22,29 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
 
-    - name: Build and push image Aliyun
+    - name: Build and push image to Aliyun
       run: |
         docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
         for line in $(cat images.txt); do
           docker pull $line
-          image_name_tag=$(echo $line | awk -F'/' '{print $NF}')
-          new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image_name_tag"
-          echo "docker tag $image $new_image"
-          docker tag $line $new_image
-          echo "docker push $new_image"
-          docker push $new_image
+          
+          if echo $line | grep -q '@sha256'; then
+            # 获取镜像ID
+            image_id=$(docker inspect --format="{{.Id}}" $line)
+            # 提取镜像名称和标签（去掉@sha256部分）
+            image_name_tag=$(echo $line | sed 's/@sha256.*//')
+            new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$(basename $image_name_tag)"
+            echo "docker tag $image_id $new_image"
+            docker tag $image_id $new_image
+            echo "docker push $new_image"
+            docker push $new_image
+          else
+            # 直接使用原始名称
+            image_name_tag=$(echo $line | awk -F'/' '{print $NF}')
+            new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image_name_tag"
+            echo "docker tag $line $new_image"
+            docker tag $line $new_image
+            echo "docker push $new_image"
+            docker push $new_image
+          fi
         done
