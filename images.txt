@@ -1,1 +1,1 @@
-99cloud/skyline:latest
+quay.io/go-skynet/local-ai
