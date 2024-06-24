@@ -1,1 +1,3 @@
-99cloud/skyline:latest
+docker.io/calico/cni:master
+docker.io/calico/node:master
+docker.io/calico/kube-controllers:master
