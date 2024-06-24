@@ -1,1 +1,1 @@
-skyline
+99cloud/skyline:latest
