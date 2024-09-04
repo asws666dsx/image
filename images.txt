@@ -1,2 +1,2 @@
-proxyv2
-pilot
+docker.io/istio/proxyv2
+docker.io/istio/pilot
