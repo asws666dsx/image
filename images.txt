@@ -1,2 +1,2 @@
-docker.io/istio/proxyv2
-docker.io/istio/pilot
+docker.io/istio/proxyv2:1.20.6
+docker.io/istio/pilot:1.20.6
