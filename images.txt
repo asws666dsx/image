@@ -1,1 +1,2 @@
-kong:3.6
+proxyv2
+pilot
