@@ -1,3 +1,2 @@
-kong/httpbin
-docker/whalesay
-minio/minio:RELEASE.2022-11-17T23-20-09Z
+gitlab/gitlab-ce
+jenkins/jenkins
