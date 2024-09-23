@@ -1,2 +1,3 @@
-golang:1.23.1
-alpine:3.20.3
+kong/httpbin
+docker/whalesay:v3.5.11
+minio/minio:RELEASE.2022-11-17T23-20-09Z
