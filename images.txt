@@ -1,1 +1,1 @@
-ubuntu:18.04
+kubeedge/cloudcore:v1.11.1
