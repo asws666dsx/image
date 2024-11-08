@@ -1,1 +1,1 @@
-kubeedge/cloudcore:v1.11.1
+centos:7
