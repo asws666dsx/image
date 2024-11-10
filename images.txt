@@ -1,2 +1,3 @@
-linuxserver/openvpn-as:latest
+openvpn:local
+ovpn-admin:local
 
