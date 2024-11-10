@@ -1,1 +1,1 @@
-kubeedge/cloudcore:v1.11.1
+php:8.2.25
