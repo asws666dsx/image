@@ -1,1 +1,1 @@
-kylemanna/openvpn:latest
+linuxserver/openvpn-as:latest
