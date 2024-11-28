@@ -1,3 +1,1 @@
-openvpn:local
-ovpn-admin:local
-
+ubuntu:20.04
