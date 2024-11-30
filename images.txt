@@ -1,1 +1,1 @@
-redis:6.2
+mariadb:10.5
