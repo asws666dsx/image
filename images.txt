@@ -1,1 +1,1 @@
-mariadb:10.5
+centos:centos7.5.1804
