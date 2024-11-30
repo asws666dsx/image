@@ -1,1 +1,1 @@
-ubuntu:20.04
+openjdk:8-jre
