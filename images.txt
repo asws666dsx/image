@@ -1,2 +1,1 @@
-wordpress:latest
-mysql:5.7
+linuxcc/openvpn-web-gui-server:v2.4
