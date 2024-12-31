@@ -1,1 +1,1 @@
-faucet/python3:12.0.1
+faucet/faucet
