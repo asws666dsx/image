@@ -1,1 +1,1 @@
-linuxcc/openvpn-web-gui-server:v2.4
+faucet/python3:12.0.1
