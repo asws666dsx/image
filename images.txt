@@ -1,1 +1,3 @@
-faucet/faucet
+docker.io/calico/cni:v3.26.1
+docker.io/calico/node:v3.26.1
+docker.io/calico/kube-controllers:v3.26.1
