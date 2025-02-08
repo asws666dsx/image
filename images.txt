@@ -9,7 +9,6 @@ kserve/pmmlserver:v0.14.1
 kserve/sklearnserver:v0.14.1
 tensorflow/serving:2.6.2
 pytorch/torchserve-kfs:0.9.0
-nvcr.io/nvidia/tritonserver:23.05-py3
 kserve/xgbserver:v0.14.1
 kserve/storage-initializer:v0.14.1
 kserve/models-web-app:v0.13.0-rc.0
