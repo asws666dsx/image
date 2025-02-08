@@ -1,1 +1,2 @@
-nvcr.io/nvidia/k8s-device-plugin:v0.17.0
+docker.io/istio/proxyv2:1.24.2
+docker.io/istio/pilot:1.24.2
