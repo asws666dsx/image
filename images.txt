@@ -1,14 +1,1 @@
-kserve/kserve-controller:v0.14.1
-kserve/kserve-localmodel-controller:v0.14.1
-kserve/kserve-localmodelnode-agent:v0.14.1
-kserve/huggingfaceserver:v0.14.1
-kserve/lgbserver:v0.14.1
-docker.io/seldonio/mlserver:1.5.0
-kserve/paddleserver:v0.14.1
-kserve/pmmlserver:v0.14.1
-kserve/sklearnserver:v0.14.1
-tensorflow/serving:2.6.2
-pytorch/torchserve-kfs:0.9.0
-kserve/xgbserver:v0.14.1
-kserve/storage-initializer:v0.14.1
-kserve/models-web-app:v0.13.0-rc.0
+kong/httpbin
