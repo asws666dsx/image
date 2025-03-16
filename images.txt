@@ -1,1 +1,1 @@
-zabbix/zabbix-apache-mysql
+zabbix/zabbix-web-apache-mysql
