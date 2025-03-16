@@ -1,1 +1,1 @@
-bitnami/php-fpm
+zabbix/zabbix-apache-mysql
