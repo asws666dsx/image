@@ -1,1 +1,1 @@
-zabbix/zabbix-web-apache-mysql
+ghcr.io/aquasecurity/trivy-db
