@@ -1,1 +1,1 @@
-aquasec/trivy-db:2
+aquasec/trivy-db:latest
