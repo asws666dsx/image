@@ -1,1 +1,1 @@
-aquasec/trivy-db:latest
+dcoker-ce
