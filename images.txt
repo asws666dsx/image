@@ -1,1 +1,1 @@
-tomcat:9.0.105-jre8
+tomcat:8.0
