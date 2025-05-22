@@ -1,1 +1,2 @@
-tomcat:8.0
+node:lts-alpine
+nginx:stable-alpine
