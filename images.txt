@@ -1,4 +1,1 @@
-ghcr.nju.edu.cn/xinnan-tech/xiaozhi-esp32-server:server_latest
-ghcr.nju.edu.cn/xinnan-tech/xiaozhi-esp32-server:web_latest
-mysql:latest
-redis
+registry.k8s.io/e2e-test-images/agnhost:2.39
