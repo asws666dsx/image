@@ -1,1 +1,1 @@
-3.13-management-alpine
+rabbitmq:3.13-management-alpine
