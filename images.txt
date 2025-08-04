@@ -1,3 +1,2 @@
-quay.io/tigera/flow-aggregator:v3.30.2
-quay.io/tigera/ee-whisker-ui:v3.30.2
+
 docker.io/calico/csi:v3.30.2
