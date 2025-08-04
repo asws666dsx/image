@@ -1,6 +1,6 @@
-docker.io/calico/node:v3.27.3
-docker.io/calico/cni:v3.27.3
-docker.io/calico/kube-controllers:v3.27.3
-docker.io/calico/pod2daemon-flexvol:v3.27.3
-docker.io/calico/typha:v3.27.3
-docker.io/calico/apiserver:v3.27.3
+docker.io/calico/node:v3.30.2
+docker.io/calico/cni:v3.30.2
+docker.io/calico/kube-controllers:v3.30.2
+docker.io/calico/pod2daemon-flexvol:v3.30.2
+docker.io/calico/typha:v3.30.2
+docker.io/calico/apiserver:v3.30.2
