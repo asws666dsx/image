@@ -1,1 +1,1 @@
-rancher/mirrored-calico-node-driver-registrar:v3.30.2
+k8s.gcr.io/kube-apiserver:v1.25.2
