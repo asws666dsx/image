@@ -1,3 +1,9 @@
-registry.k8s.io/etcd:3.5.16-0
-docker.io/alpine:3.21.3
-registry.k8s.io/kube-apiserver:v1.31.3
+docker.io/calico/apiserver:v3.30.2
+docker.io/calico/csi:v3.30.2
+docker.io/calico/goldmane:v3.30.2
+docker.io/calico/kube-controllers:v3.30.2
+docker.io/calico/node-driver-registrar:v3.30.2
+docker.io/calico/node:v3.30.2
+docker.io/calico/typha:v3.30.2
+docker.io/calico/whisker-backend:v3.30.2
+docker.io/calico/whisker:v3.30.2
