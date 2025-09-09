@@ -1,2 +1,2 @@
-docker.io/istio/proxyv2:1.25.4-distroless
+docker.io/istio/proxyv2:1.25.4
 
