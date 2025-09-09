@@ -1,1 +1,1 @@
-docker.io/istio/install-cni:1.25.4-distroless
+docker.io/istio/ztunnel:1.25.4-distroless
