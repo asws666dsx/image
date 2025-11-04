@@ -1,1 +1,2 @@
 docker.io/istio/pilot:1.25.4-distroless
+docker.io/istio/install-cni:1.25.4-distroless
