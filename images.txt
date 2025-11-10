@@ -1,6 +1,1 @@
-docker.io/istio/examples-bookinfo-details-v2:1.20.3
-docker.io/istio/examples-bookinfo-ratings-v2:1.20.3
-docker.io/istio/examples-bookinfo-mongodb:1.20.3
-docker.io/istio/examples-bookinfo-mysqldb:1.20.3
-docker.io/istio/examples-bookinfo-ratings-v2:1.20.3
-docker.io/istio/examples-bookinfo-ratings-v2:1.20.3
+docker.io/prom/prometheus:v3.7.3
