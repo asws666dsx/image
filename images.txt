@@ -1,1 +1,1 @@
-docker.io/grafana/grafana:12.0.1
+ubuntu:22.04
