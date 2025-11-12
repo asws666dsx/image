@@ -1,1 +1,1 @@
-ubuntu:22.04
+docker.io/curlimages/curl:8.16.0
