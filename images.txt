@@ -1,1 +1,1 @@
-docker.io/mccutchen/go-httpbin:v2.15.0
+docker.io/fortio/fortio:latest_release
