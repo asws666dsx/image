@@ -1,2 +1,1 @@
 docker.io/nginx:latest
-docker.io/redis:alpine
