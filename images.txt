@@ -1,1 +1,1 @@
-redis:latest
+nginx:latest
