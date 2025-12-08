@@ -1,1 +1,1 @@
-nginx:latest
+mysql:latest
