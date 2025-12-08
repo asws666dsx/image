@@ -1,3 +1,2 @@
 docker.io/nginx:latest
 docker.io/redis:alpine
-docker.io/mysql:8.0
