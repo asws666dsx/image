@@ -1,1 +1,1 @@
-docker.io/test:latest
+test:latest
