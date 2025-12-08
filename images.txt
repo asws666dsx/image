@@ -1,1 +1,1 @@
-docker.io/redis:latest
+docker.io/nginx:latest
