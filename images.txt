@@ -1,1 +1,1 @@
-mysql:latest
+nicolaka/netshoot
