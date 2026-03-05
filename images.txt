@@ -1,1 +1,1 @@
-nicolaka/netshoot
+node:20-alpine
