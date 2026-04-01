@@ -2,6 +2,11 @@ name: Docker
 
 on:
   workflow_dispatch:
+    inputs:
+      platform:
+        description: '目标架构 (linux/amd64, linux/arm64, linux/amd64,linux/arm64)'
+        required: false
+        default: 'linux/amd64'
   push:
     branches: [ main ]
 
@@ -10,41 +15,76 @@ env:
   ALIYUN_NAME_SPACE: "${{ secrets.NAME_SPACE }}"
   ALIYUN_REGISTRY_USER: "${{ secrets.REGISTRY_USER }}"
   ALIYUN_REGISTRY_PASSWORD: "${{ secrets.REGISTRY_PASSWORD }}"
+  PLATFORM: "${{ github.event.inputs.platform || 'linux/amd64' }}"
 
 jobs:
   build:
     name: Pull
     runs-on: ubuntu-latest
     steps:
-    - name: Setup Docker buildx
-      uses: docker/setup-buildx-action@79abd3f86f79a9d68a23c75a09a9a85889262adf
+      - name: Setup Docker buildx
+        uses: docker/setup-buildx-action@79abd3f86f79a9d68a23c75a09a9a85889262adf
 
-    - name: Check out code
-      uses: actions/checkout@v2
+      - name: Setup QEMU for multi-arch
+        uses: docker/setup-qemu-action@v3
 
-    - name: Build and push image to Aliyun
-      run: |
-        docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
-        for line in $(cat images.txt); do
-          docker pull $line
-          
-          if echo $line | grep -q '@sha256'; then
-            # 获取镜像ID
-            image_id=$(docker inspect --format="{{.Id}}" $line)
-            # 提取镜像名称和标签（去掉@sha256部分）
-            image_name_tag=$(echo $line | sed 's/@sha256.*//')
-            new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$(basename $image_name_tag)"
-            echo "docker tag $image_id $new_image"
-            docker tag $image_id $new_image
-            echo "docker push $new_image"
-            docker push $new_image
-          else
-            # 直接使用原始名称
-            image_name_tag=$(echo $line | awk -F'/' '{print $NF}')
-            new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image_name_tag"
-            echo "docker tag $line $new_image"
-            docker tag $line $new_image
-            echo "docker push $new_image"
-            docker push $new_image
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Build and push image to Aliyun
+        run: |
+          docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
+
+          # 判断是否多架构
+          IFS=',' read -ra ARCHS <<< "$PLATFORM"
+          MULTI_ARCH=false
+          if [ ${#ARCHS[@]} -gt 1 ]; then
+            MULTI_ARCH=true
           fi
-        done
+
+          for line in $(cat images.txt); do
+            if [ "$MULTI_ARCH" = true ]; then
+              # 多架构：用 buildx 创建 manifest
+              image_name_tag=$(echo $line | awk -F'/' '{print $NF}' | sed 's/@sha256.*//')
+              new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image_name_tag"
+
+              echo "=== 多架构拉取并推送: $line -> $new_image ==="
+              for arch in "${ARCHS[@]}"; do
+                arch=$(echo $arch | xargs)
+                arch_tag=$(echo $arch | tr '/' '-')
+                echo "拉取 $line ($arch)"
+                docker pull --platform $arch $line
+                docker tag $line "${new_image}-${arch_tag}"
+                docker push "${new_image}-${arch_tag}"
+              done
+
+              # 创建并推送 manifest
+              manifest_args=""
+              for arch in "${ARCHS[@]}"; do
+                arch=$(echo $arch | xargs)
+                arch_tag=$(echo $arch | tr '/' '-')
+                manifest_args="$manifest_args ${new_image}-${arch_tag}"
+              done
+              docker manifest create $new_image $manifest_args
+              docker manifest push $new_image
+
+            else
+              # 单架构
+              echo "=== 单架构拉取: $line (${PLATFORM}) ==="
+              docker pull --platform $PLATFORM $line
+
+              if echo $line | grep -q '@sha256'; then
+                image_id=$(docker inspect --format="{{.Id}}" $line)
+                image_name_tag=$(echo $line | sed 's/@sha256.*//')
+                new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$(basename $image_name_tag)"
+                docker tag $image_id $new_image
+              else
+                image_name_tag=$(echo $line | awk -F'/' '{print $NF}')
+                new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image_name_tag"
+                docker tag $line $new_image
+              fi
+
+              echo "docker push $new_image"
+              docker push $new_image
+            fi
+          done
