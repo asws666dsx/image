@@ -1,1 +1,2 @@
-nginx
+velero/velero:v1.18.0
+velero/velero-plugin-for-aws:v1.8.0
