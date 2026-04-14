@@ -1,1 +1,1 @@
-ubuntu:22.04
+golang:1.20
