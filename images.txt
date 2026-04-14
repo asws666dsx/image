@@ -1,1 +1,2 @@
-golang:1.25
+golangci/golang:1.24.11-alpine
+golangci/alpine:3.15
