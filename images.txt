@@ -1,2 +1,1 @@
-velero/velero:v1.18.0
-velero/velero-plugin-for-aws:v1.8.0
+ubuntu:22.04
