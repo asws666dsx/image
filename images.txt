@@ -1,4 +1,2 @@
-velero/velero:v1.18.0
-velero/velero-plugin-for-aws:v1.10.0
-minio/minio:latest
-minio/mc:latest
+postgres
+redis
