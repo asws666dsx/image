@@ -1,6 +1,1 @@
-registry.istio.io/release/examples-bookinfo-details-v2:1.20.3
-registry.istio.io/release/examples-bookinfo-ratings-v2:1.20.3
-registry.istio.io/release/examples-bookinfo-mongodb:1.20.3
-registry.istio.io/release/examples-bookinfo-mysqldb:1.20.3
-registry.istio.io/release/examples-bookinfo-ratings-v2:1.20.3
-registry.istio.io/release/examples-bookinfo-ratings-v2:1.20.3
+node:14-alpine
