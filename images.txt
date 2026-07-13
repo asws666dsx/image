@@ -1,1 +1,1 @@
-node:14-alpine
+gcr.io/google-samples/gb-frontend:v5
