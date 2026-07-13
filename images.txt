@@ -1,1 +1,1 @@
-gcr.io/google-samples/gb-frontend:v5
+cr.fluentbit.io/fluent/fluent-bit:5.0.9
