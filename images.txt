@@ -1,1 +1,1 @@
-cr.fluentbit.io/fluent/fluent-bit:5.0.9
+k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
