@@ -1,1 +1,1 @@
-sckyzo/slurm-exporter:latest
+flagtree-ppu-3.6-dev:202608
