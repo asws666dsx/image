@@ -1,1 +1,1 @@
-flagtree-ppu-3.6-dev:202608
+registry.k8s.io/metrics-server/metrics-server:v0.9.1
